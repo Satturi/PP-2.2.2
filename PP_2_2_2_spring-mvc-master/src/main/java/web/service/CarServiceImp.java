@@ -10,15 +10,20 @@ import java.util.List;
 import java.util.stream.Collectors;
 @Component
 public class CarServiceImp implements CarService{
+    
+    private List<User> list;
+    {
+        list = new ArrayList<>();
+        list.add(new User(++iD,"ABC", 123, "Nurlan"));
+        list.add(new User(++iD,"AAA", 111, "Nurlan"));
+        list.add(new User(++iD,"BBB", 222, "Nurlan"));
+        list.add(new User(++iD,"CCC", 333, "Nurlan"));
+        list.add(new User(++iD,"DDD", 444, "Nurlan"));
+    }
+    
     @Override
     public List<Car> carList(int count) {
-        List<Car> list = new ArrayList<>();
-        list.add(new Car("ABC", 123, "Nurlan"));
-        list.add(new Car("AAA", 111, "Nurlan"));
-        list.add(new Car("BBB", 222, "Nurlan"));
-        list.add(new Car("CCC", 333, "Nurlan"));
-        list.add(new Car("DDD", 444, "Nurlan"));
-
+        
         return list.stream().limit(count).collect(Collectors.toList());
     }
 }
